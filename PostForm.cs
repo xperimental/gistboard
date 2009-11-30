@@ -22,6 +22,7 @@ namespace GistBoard
             Gist gist = new Gist();
             gist.Filename = m_textFile.Text;
             gist.Contents = m_textContent.Text;
+            gist.Private = m_checkPrivate.Checked;
 
             try {
                 GistServer.Post(gist);

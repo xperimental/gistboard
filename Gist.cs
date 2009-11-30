@@ -9,6 +9,7 @@ namespace GistBoard
 
         private String m_fileName;
         private String m_contents;
+        private bool m_private;
 
         public String Filename
         {
@@ -20,6 +21,12 @@ namespace GistBoard
         {
             get { return m_contents; }
             set { m_contents = value; }
+        }
+
+        public bool Private
+        {
+            get { return m_private; }
+            set { m_private = value; }
         }
 
     }
