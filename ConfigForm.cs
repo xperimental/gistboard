@@ -12,7 +12,7 @@
     {
         public ConfigForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.LoadValues();
         }

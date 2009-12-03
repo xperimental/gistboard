@@ -96,7 +96,7 @@
             this.m_buttonPost.TabIndex = 5;
             this.m_buttonPost.Text = "Post";
             this.m_buttonPost.UseVisualStyleBackColor = true;
-            this.m_buttonPost.Click += new System.EventHandler(this.m_buttonPost_Click);
+            this.m_buttonPost.Click += new System.EventHandler(this.ButtonPost_Click);
             // 
             // m_checkPrivate
             // 

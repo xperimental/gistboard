@@ -12,26 +12,30 @@
     {
         public PostForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             m_textContent.Text = Clipboard.GetText();
         }
 
-        private void m_buttonPost_Click(object sender, EventArgs e)
+        private void ButtonPost_Click(object sender, EventArgs e)
         {
             Gist gist = new Gist();
-            gist.Filename = m_textFile.Text;
-            gist.Contents = m_textContent.Text;
-            gist.Private = m_checkPrivate.Checked;
+            gist.Filename = this.m_textFile.Text;
+            gist.Contents = this.m_textContent.Text;
+            gist.Private = this.m_checkPrivate.Checked;
 
-            try {
+            try
+            {
                 GistServer.Post(gist);
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Posting gist wasn't successful: " + ex.Message,
-                    "GistBoard", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Posting gist wasn't successful: " + ex.Message,
+                    "GistBoard",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }

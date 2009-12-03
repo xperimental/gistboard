@@ -31,15 +31,6 @@
             }
         }
 
-        private static Config Load(string configFile)
-        {
-            FileStream stream = new FileStream(configFile, FileMode.Open);
-            XmlSerializer seria = new XmlSerializer(typeof(Config));
-            Config result = (Config)seria.Deserialize(stream);
-            stream.Close();
-            return result;
-        }
-
         [XmlElement()]
         public string User
         {
@@ -60,6 +51,15 @@
             XmlSerializer seria = new XmlSerializer(typeof(Config));
             seria.Serialize(stream, this);
             stream.Close();
+        }
+
+        private static Config Load(string configFile)
+        {
+            FileStream stream = new FileStream(configFile, FileMode.Open);
+            XmlSerializer seria = new XmlSerializer(typeof(Config));
+            Config result = (Config)seria.Deserialize(stream);
+            stream.Close();
+            return result;
         }
     }
 }

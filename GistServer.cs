@@ -7,7 +7,7 @@
     using System.Text;
     using System.Web;
 
-    static class GistServer
+    internal static class GistServer
     {
         private const string PostUrl = "http://gist.github.com/gists";
 
@@ -44,7 +44,9 @@
             parameters.Add("file_name[gistfile1]", gist.Filename);
             parameters.Add("file_contents[gistfile1]", gist.Contents);
             if (gist.Private)
+            {
                 parameters.Add("private", "on");
+            }
 
             string[] tokens = new string[parameters.Keys.Count];
             int idx = 0;

@@ -14,63 +14,63 @@
 
         public GistBoardIcon()
         {
-            contextMenu = new ContextMenuStrip();
-            contextMenu.Opening += new System.ComponentModel.CancelEventHandler(ContextMenu_Opening);
+            this.contextMenu = new ContextMenuStrip();
+            this.contextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenu_Opening);
 
-            contextPostItem = new ToolStripMenuItem(Resources.Tray_Context_Post_Text);
-            contextPostItem.Image = Resources.Tray_Context_Post_Icon;
-            contextPostItem.Click += new EventHandler(ContextPostItem_Click);
-            contextMenu.Items.Add(contextPostItem);
+            this.contextPostItem = new ToolStripMenuItem(Resources.Tray_Context_Post_Text);
+            this.contextPostItem.Image = Resources.Tray_Context_Post_Icon;
+            this.contextPostItem.Click += new EventHandler(this.ContextPostItem_Click);
+            this.contextMenu.Items.Add(this.contextPostItem);
 
-            contextMenu.Items.Add(new ToolStripSeparator());
+            this.contextMenu.Items.Add(new ToolStripSeparator());
 
-            contextConfigItem = new ToolStripMenuItem(Resources.Tray_Context_Config_Text);
-            contextConfigItem.Image = Resources.Tray_Context_Config_Icon;
-            contextConfigItem.Click += new EventHandler(ContextConfigItem_Click);
-            contextMenu.Items.Add(contextConfigItem);
+            this.contextConfigItem = new ToolStripMenuItem(Resources.Tray_Context_Config_Text);
+            this.contextConfigItem.Image = Resources.Tray_Context_Config_Icon;
+            this.contextConfigItem.Click += new EventHandler(this.ContextConfigItem_Click);
+            this.contextMenu.Items.Add(this.contextConfigItem);
 
-            contextQuitItem = new ToolStripMenuItem(Resources.Tray_Context_Quit_Text);
-            contextQuitItem.Click += new EventHandler(ContextQuitItem_Click);
-            contextMenu.Items.Add(contextQuitItem);
+            this.contextQuitItem = new ToolStripMenuItem(Resources.Tray_Context_Quit_Text);
+            this.contextQuitItem.Click += new EventHandler(this.ContextQuitItem_Click);
+            this.contextMenu.Items.Add(this.contextQuitItem);
 
-            trayIcon = new NotifyIcon();
-            trayIcon.Icon = Resources.Tray_Icon;
-            trayIcon.Text = Resources.Tray_Text;
-            trayIcon.ContextMenuStrip = contextMenu;
-            trayIcon.Visible = true;
+            this.trayIcon = new NotifyIcon();
+            this.trayIcon.Icon = Resources.Tray_Icon;
+            this.trayIcon.Text = Resources.Tray_Text;
+            this.trayIcon.ContextMenuStrip = this.contextMenu;
+            this.trayIcon.Visible = true;
 
             Config.Init();
         }
 
-        void ContextConfigItem_Click(object sender, EventArgs e)
+        private void ContextConfigItem_Click(object sender, EventArgs e)
         {
-            contextMenu.Enabled = false;
+            this.contextMenu.Enabled = false;
 
             ConfigForm dlg = new ConfigForm();
             dlg.ShowDialog();
 
-            contextMenu.Enabled = true;
+            this.contextMenu.Enabled = true;
         }
 
-        void ContextQuitItem_Click(object sender, EventArgs e)
+        private void ContextQuitItem_Click(object sender, EventArgs e)
         {
-            trayIcon.Visible = false;
+            this.trayIcon.Visible = false;
             Application.Exit();
         }
 
-        void ContextPostItem_Click(object sender, EventArgs e)
+        private void ContextPostItem_Click(object sender, EventArgs e)
         {
-            contextMenu.Enabled = false;
+            this.contextMenu.Enabled = false;
 
             PostForm postForm = new PostForm();
             postForm.ShowDialog();
 
-            contextMenu.Enabled = true;
+            this.contextMenu.Enabled = true;
         }
 
-        void ContextMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ContextMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            contextPostItem.Enabled = Clipboard.ContainsText();
+            this.contextPostItem.Enabled = Clipboard.ContainsText();
         }
     }
 }
