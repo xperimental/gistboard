@@ -7,10 +7,21 @@
     using System.Text;
     using System.Web;
 
+    /// <summary>
+    /// This class provides the interface to the github server to save a Gist.
+    /// </summary>
     internal static class GistServer
     {
+        /// <summary>
+        /// Contains the URL the Gists are sent to.
+        /// </summary>
         private const string PostUrl = "http://gist.github.com/gists";
 
+        /// <summary>
+        /// Send a new Gist to the server.
+        /// </summary>
+        /// <param name="gist">Gist to post on server.</param>
+        /// <exception cref="ArgumentException">If the login data is missing.</exception>
         internal static void Post(Gist gist)
         {
             string user = Config.Instance.User;
@@ -35,6 +46,13 @@
             Console.WriteLine("Response code: " + ((HttpWebResponse)response).StatusCode);
         }
 
+        /// <summary>
+        /// Prepares the urlencoded data sent to the server.
+        /// </summary>
+        /// <param name="user">Github user name.</param>
+        /// <param name="token">Github API token.</param>
+        /// <param name="gist">Object with Gist information.</param>
+        /// <returns>Urlencoded data which will be sent to the server.</returns>
         private static byte[] PrepareFormData(string user, string token, Gist gist)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
