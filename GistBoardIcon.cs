@@ -4,14 +4,40 @@
     using System.Windows.Forms;
     using GistBoard.Properties;
 
+    /// <summary>
+    /// This class contains the definition of the systray icon, which
+    /// is the main user interface of this application.
+    /// </summary>
     internal class GistBoardIcon
     {
+        /// <summary>
+        /// Contains the context menu strip.
+        /// </summary>
         private ContextMenuStrip contextMenu;
+
+        /// <summary>
+        /// Contains the context menu item used to post a Gist.
+        /// </summary>
         private ToolStripMenuItem contextPostItem;
+
+        /// <summary>
+        /// Contains the context menu item used to quit the application.
+        /// </summary>
         private ToolStripMenuItem contextQuitItem;
+
+        /// <summary>
+        /// Contains the context menu item used to display the configuration window.
+        /// </summary>
         private ToolStripMenuItem contextConfigItem;
+
+        /// <summary>
+        /// Contains the systray icon.
+        /// </summary>
         private NotifyIcon trayIcon;
 
+        /// <summary>
+        /// Initializes a new instance of the GistBoardIcon class.
+        /// </summary>
         public GistBoardIcon()
         {
             this.contextMenu = new ContextMenuStrip();
@@ -42,6 +68,12 @@
             Config.Init();
         }
 
+        /// <summary>
+        /// This method is called when the user clicks the configuration
+        /// context menu item.
+        /// </summary>
+        /// <param name="sender">Event sender (ignored).</param>
+        /// <param name="e">Event arguments (ignored).</param>
         private void ContextConfigItem_Click(object sender, EventArgs e)
         {
             this.contextMenu.Enabled = false;
@@ -52,12 +84,24 @@
             this.contextMenu.Enabled = true;
         }
 
+        /// <summary>
+        /// This method is called, when the user clicks on the
+        /// context menu item used to quit the application.
+        /// </summary>
+        /// <param name="sender">Event sender (ignored).</param>
+        /// <param name="e">Event arguments (ignored).</param>
         private void ContextQuitItem_Click(object sender, EventArgs e)
         {
             this.trayIcon.Visible = false;
             Application.Exit();
         }
 
+        /// <summary>
+        /// This method is called, when the user clicks on the context
+        /// menu item which is used to post a new Gist to the server.
+        /// </summary>
+        /// <param name="sender">Event sender (ignored).</param>
+        /// <param name="e">Event arguments (ignored).</param>
         private void ContextPostItem_Click(object sender, EventArgs e)
         {
             this.contextMenu.Enabled = false;
@@ -68,6 +112,13 @@
             this.contextMenu.Enabled = true;
         }
 
+        /// <summary>
+        /// This method is called before the context menu is displayed.
+        /// It checks, if the clipboard contains content which can be sent
+        /// to the server as a Gist and enables the Post item accordingly.
+        /// </summary>
+        /// <param name="sender">Event sender (ignored).</param>
+        /// <param name="e">Event arguments (ignored).</param>
         private void ContextMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.contextPostItem.Enabled = Clipboard.ContainsText();
