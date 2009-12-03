@@ -1,11 +1,18 @@
 ﻿namespace GistBoard
 {
-    partial class ConfigForm
+    internal partial class ConfigForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelToken;
+        private System.Windows.Forms.TextBox textUser;
+        private System.Windows.Forms.TextBox textToken;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -13,10 +20,11 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (this.components != null))
             {
-                components.Dispose();
+                this.components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -28,84 +36,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.m_buttonCancel = new System.Windows.Forms.Button();
-            this.m_buttonSave = new System.Windows.Forms.Button();
-            this.m_labelUser = new System.Windows.Forms.Label();
-            this.m_labelToken = new System.Windows.Forms.Label();
-            this.m_textUser = new System.Windows.Forms.TextBox();
-            this.m_textToken = new System.Windows.Forms.TextBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.labelToken = new System.Windows.Forms.Label();
+            this.textUser = new System.Windows.Forms.TextBox();
+            this.textToken = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // m_buttonCancel
+            // buttonCancel
             // 
-            this.m_buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_buttonCancel.Location = new System.Drawing.Point(150, 69);
-            this.m_buttonCancel.Name = "m_buttonCancel";
-            this.m_buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.m_buttonCancel.TabIndex = 0;
-            this.m_buttonCancel.Text = "Cancel";
-            this.m_buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(150, 69);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 0;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // m_buttonSave
+            // buttonSave
             // 
-            this.m_buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_buttonSave.Location = new System.Drawing.Point(231, 69);
-            this.m_buttonSave.Name = "m_buttonSave";
-            this.m_buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.m_buttonSave.TabIndex = 1;
-            this.m_buttonSave.Text = "Save";
-            this.m_buttonSave.UseVisualStyleBackColor = true;
-            this.m_buttonSave.Click += new System.EventHandler(this.m_buttonSave_Click);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(231, 69);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 1;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
-            // m_labelUser
+            // labelUser
             // 
-            this.m_labelUser.AutoSize = true;
-            this.m_labelUser.Location = new System.Drawing.Point(21, 15);
-            this.m_labelUser.Name = "m_labelUser";
-            this.m_labelUser.Size = new System.Drawing.Size(32, 13);
-            this.m_labelUser.TabIndex = 2;
-            this.m_labelUser.Text = "User:";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(21, 15);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(32, 13);
+            this.labelUser.TabIndex = 2;
+            this.labelUser.Text = "User:";
             // 
-            // m_labelToken
+            // labelToken
             // 
-            this.m_labelToken.AutoSize = true;
-            this.m_labelToken.Location = new System.Drawing.Point(12, 41);
-            this.m_labelToken.Name = "m_labelToken";
-            this.m_labelToken.Size = new System.Drawing.Size(41, 13);
-            this.m_labelToken.TabIndex = 3;
-            this.m_labelToken.Text = "Token:";
+            this.labelToken.AutoSize = true;
+            this.labelToken.Location = new System.Drawing.Point(12, 41);
+            this.labelToken.Name = "labelToken";
+            this.labelToken.Size = new System.Drawing.Size(41, 13);
+            this.labelToken.TabIndex = 3;
+            this.labelToken.Text = "Token:";
             // 
-            // m_textUser
+            // textUser
             // 
-            this.m_textUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_textUser.Location = new System.Drawing.Point(59, 12);
-            this.m_textUser.Name = "m_textUser";
-            this.m_textUser.Size = new System.Drawing.Size(247, 20);
-            this.m_textUser.TabIndex = 4;
+            this.textUser.Location = new System.Drawing.Point(59, 12);
+            this.textUser.Name = "textUser";
+            this.textUser.Size = new System.Drawing.Size(247, 20);
+            this.textUser.TabIndex = 4;
             // 
-            // m_textToken
+            // textToken
             // 
-            this.m_textToken.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textToken.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.m_textToken.Location = new System.Drawing.Point(59, 38);
-            this.m_textToken.Name = "m_textToken";
-            this.m_textToken.Size = new System.Drawing.Size(247, 20);
-            this.m_textToken.TabIndex = 5;
+            this.textToken.Location = new System.Drawing.Point(59, 38);
+            this.textToken.Name = "textToken";
+            this.textToken.Size = new System.Drawing.Size(247, 20);
+            this.textToken.TabIndex = 5;
             // 
             // ConfigForm
             // 
-            this.AcceptButton = this.m_buttonSave;
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.m_buttonCancel;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(318, 104);
-            this.Controls.Add(this.m_textToken);
-            this.Controls.Add(this.m_textUser);
-            this.Controls.Add(this.m_labelToken);
-            this.Controls.Add(this.m_labelUser);
-            this.Controls.Add(this.m_buttonSave);
-            this.Controls.Add(this.m_buttonCancel);
+            this.Controls.Add(this.textToken);
+            this.Controls.Add(this.textUser);
+            this.Controls.Add(this.labelToken);
+            this.Controls.Add(this.labelUser);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -121,12 +130,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button m_buttonCancel;
-        private System.Windows.Forms.Button m_buttonSave;
-        private System.Windows.Forms.Label m_labelUser;
-        private System.Windows.Forms.Label m_labelToken;
-        private System.Windows.Forms.TextBox m_textUser;
-        private System.Windows.Forms.TextBox m_textToken;
     }
 }

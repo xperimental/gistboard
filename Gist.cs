@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GistBoard
+﻿namespace GistBoard
 {
     internal class Gist
     {
+        private string fileName;
+        private string contents;
+        private bool privateGist;
 
-        private String m_fileName;
-        private String m_contents;
-        private bool m_private;
-
-        public String Filename
+        public string Filename
         {
-            get { return m_fileName; }
-            set { m_fileName = value; }
+            get { return this.fileName; }
+            set { this.fileName = value; }
         }
 
-        public String Contents
+        public string Contents
         {
-            get { return m_contents; }
-            set { m_contents = value; }
+            get { return this.contents; }
+            set { this.contents = value; }
         }
 
         public bool Private
         {
-            get { return m_private; }
-            set { m_private = value; }
+            get { return this.privateGist; }
+            set { this.privateGist = value; }
         }
-
     }
 }

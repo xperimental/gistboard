@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
-using System.IO;
-
-namespace GistBoard
+﻿namespace GistBoard
 {
+    using System;
+    using System.IO;
+    using System.Xml.Serialization;
+
     [XmlRoot()]
     public class Config
     {
+        private static readonly string ConfigFile = "GistBoard.config.xml";
+
         private static Config instance;
-        private static readonly String ConfigFile = "GistBoard.config.xml";
+
+        private string user;
+        private string token;
 
         public static Config Instance
         {
@@ -29,30 +31,27 @@ namespace GistBoard
             }
         }
 
-        private static Config Load(string ConfigFile)
+        private static Config Load(string configFile)
         {
-            FileStream stream = new FileStream(ConfigFile, FileMode.Open);
+            FileStream stream = new FileStream(configFile, FileMode.Open);
             XmlSerializer seria = new XmlSerializer(typeof(Config));
             Config result = (Config)seria.Deserialize(stream);
             stream.Close();
             return result;
         }
 
-        private String user;
-        private String token;
-
         [XmlElement()]
-        public String User
+        public string User
         {
-            get { return user; }
-            set { user = value; }
+            get { return this.user; }
+            set { this.user = value; }
         }
 
         [XmlElement()]
-        public String Token
+        public string Token
         {
-            get { return token; }
-            set { token = value; }
+            get { return this.token; }
+            set { this.token = value; }
         }
 
         internal void Save()
