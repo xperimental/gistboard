@@ -3,6 +3,9 @@
     using System;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// This class contains the entry point for the application.
+    /// </summary>
     public static class Program
     {
         /// <summary>
