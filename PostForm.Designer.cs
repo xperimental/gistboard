@@ -52,7 +52,7 @@
             this.labelContent.Location = new System.Drawing.Point(17, 41);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(47, 13);
-            this.labelContent.TabIndex = 1;
+            this.labelContent.TabIndex = 2;
             this.labelContent.Text = "Content:";
             // 
             // textFile
@@ -62,7 +62,7 @@
             this.textFile.Location = new System.Drawing.Point(70, 12);
             this.textFile.Name = "textFile";
             this.textFile.Size = new System.Drawing.Size(359, 20);
-            this.textFile.TabIndex = 2;
+            this.textFile.TabIndex = 1;
             // 
             // textContent
             // 
@@ -83,7 +83,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(273, 261);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 4;
+            this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -93,7 +93,7 @@
             this.buttonPost.Location = new System.Drawing.Point(354, 261);
             this.buttonPost.Name = "buttonPost";
             this.buttonPost.Size = new System.Drawing.Size(75, 23);
-            this.buttonPost.TabIndex = 5;
+            this.buttonPost.TabIndex = 6;
             this.buttonPost.Text = "Post";
             this.buttonPost.UseVisualStyleBackColor = true;
             this.buttonPost.Click += new System.EventHandler(this.ButtonPost_Click);
@@ -105,7 +105,7 @@
             this.checkPrivate.Location = new System.Drawing.Point(70, 265);
             this.checkPrivate.Name = "checkPrivate";
             this.checkPrivate.Size = new System.Drawing.Size(88, 17);
-            this.checkPrivate.TabIndex = 6;
+            this.checkPrivate.TabIndex = 4;
             this.checkPrivate.Text = "Make private";
             this.checkPrivate.UseVisualStyleBackColor = true;
             // 
