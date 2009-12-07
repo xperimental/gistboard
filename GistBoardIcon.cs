@@ -110,7 +110,11 @@
         /// <param name="e">Event arguments (ignored).</param>
         private void ContextDownloadItem_Click(object sender, EventArgs e)
         {
-            // TODO: Get id from user and download gist
+            DownloadForm dlg = new DownloadForm();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                this.GetGist(dlg.GistId);
+            }
         }
 
         /// <summary>
