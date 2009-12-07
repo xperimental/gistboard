@@ -36,6 +36,11 @@
         private NotifyIcon trayIcon;
 
         /// <summary>
+        /// Contains the windows control monitoring the clipboard contents.
+        /// </summary>
+        private ClipboardMonitor clipboardListener;
+
+        /// <summary>
         /// Initializes a new instance of the GistBoardIcon class.
         /// </summary>
         public GistBoardIcon()
@@ -65,7 +70,20 @@
             this.trayIcon.ContextMenuStrip = this.contextMenu;
             this.trayIcon.Visible = true;
 
+            this.clipboardListener = new ClipboardMonitor();
+            this.clipboardListener.ClipboardChanged += new EventHandler(this.OnClipboardChanged);
+
             Config.Init();
+        }
+
+        /// <summary>
+        /// Called, when the clipboard contents change.
+        /// </summary>
+        /// <param name="sender">Monitor object sending event (ignored).</param>
+        /// <param name="e">Always null (ignored).</param>
+        private void OnClipboardChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("Clipboard contents changed!");
         }
 
         /// <summary>

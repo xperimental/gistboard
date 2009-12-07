@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClipboardMonitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="ConfigForm.cs">
       <SubType>Form</SubType>
@@ -65,6 +68,7 @@
     <Compile Include="Gist.cs" />
     <Compile Include="GistBoardIcon.cs" />
     <Compile Include="GistServer.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="PostForm.cs">
       <SubType>Form</SubType>
     </Compile>
