@@ -39,6 +39,7 @@
             try
             {
                 GistServer.Post(gist);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)

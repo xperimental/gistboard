@@ -18,6 +18,11 @@
         private const string PostUrl = "http://gist.github.com/gists";
 
         /// <summary>
+        /// Contains the URL-pattern for getting Gist contents.
+        /// </summary>
+        private const string GetUrl = "https://gist.github.com/{0}.txt";
+
+        /// <summary>
         /// Send a new Gist to the server.
         /// </summary>
         /// <param name="gist">Gist to post on server.</param>
@@ -44,6 +49,32 @@
 
             WebResponse response = request.GetResponse();
             Console.WriteLine("Response code: " + ((HttpWebResponse)response).StatusCode);
+        }
+
+        /// <summary>
+        /// Download a (single file) Gist from the github server.
+        /// </summary>
+        /// <param name="id">Id of Gist to download.</param>
+        /// <returns>Gist object with contents set to Gist contents.</returns>
+        internal static Gist Get(string id)
+        {
+            WebRequest request = WebRequest.Create(String.Format(GetUrl, id));
+            WebResponse response = request.GetResponse();
+
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            StringBuilder sb = new StringBuilder();
+            while (!reader.EndOfStream)
+            {
+                sb.AppendLine(reader.ReadLine());
+            }
+
+            string contents = sb.ToString();
+            reader.Close();
+
+            Gist result = new Gist();
+            result.Contents = contents;
+
+            return result;
         }
 
         /// <summary>

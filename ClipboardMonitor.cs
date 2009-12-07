@@ -43,7 +43,7 @@
                 case NativeMethods.WM_DRAWCLIPBOARD:
                     if (this.ClipboardChanged != null)
                     {
-                        this.ClipboardChanged.BeginInvoke(this, null, null, null);
+                        this.ClipboardChanged(this, null);
                     }
 
                     break;

@@ -117,12 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Info_Get" xml:space="preserve">
+    <value>Successfully downloaded Gist {0}.</value>
+  </data>
+  <data name="Info_Post" xml:space="preserve">
+    <value>Successfully posted Gist!</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Tray_Context_Config_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Config.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tray_Context_Config_Text" xml:space="preserve">
     <value>&amp;Configuration...</value>
+  </data>
+  <data name="Tray_Context_Download_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Download.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tray_Context_Download_Text" xml:space="preserve">
+    <value>&amp;Download...</value>
   </data>
   <data name="Tray_Context_Post_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Upload.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

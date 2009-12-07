@@ -60,6 +60,24 @@ namespace GistBoard.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully downloaded Gist {0}..
+        /// </summary>
+        internal static string Info_Get {
+            get {
+                return ResourceManager.GetString("Info_Get", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully posted Gist!.
+        /// </summary>
+        internal static string Info_Post {
+            get {
+                return ResourceManager.GetString("Info_Post", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Tray_Context_Config_Icon {
             get {
                 object obj = ResourceManager.GetObject("Tray_Context_Config_Icon", resourceCulture);
@@ -73,6 +91,22 @@ namespace GistBoard.Properties {
         internal static string Tray_Context_Config_Text {
             get {
                 return ResourceManager.GetString("Tray_Context_Config_Text", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Tray_Context_Download_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Tray_Context_Download_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Download....
+        /// </summary>
+        internal static string Tray_Context_Download_Text {
+            get {
+                return ResourceManager.GetString("Tray_Context_Download_Text", resourceCulture);
             }
         }
         

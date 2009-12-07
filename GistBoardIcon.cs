@@ -1,6 +1,7 @@
 ﻿namespace GistBoard
 {
     using System;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using GistBoard.Properties;
 
@@ -11,6 +12,11 @@
     internal class GistBoardIcon
     {
         /// <summary>
+        /// Pattern of a gist definition in the clipboard.
+        /// </summary>
+        private const string GistPattern = "\\[gist:([0-9a-z]+)\\]";
+
+        /// <summary>
         /// Contains the context menu strip.
         /// </summary>
         private ContextMenuStrip contextMenu;
@@ -19,6 +25,11 @@
         /// Contains the context menu item used to post a Gist.
         /// </summary>
         private ToolStripMenuItem contextPostItem;
+
+        /// <summary>
+        /// Contains the context menu item used to download a Gist from the server.
+        /// </summary>
+        private ToolStripMenuItem contextDownloadItem;
 
         /// <summary>
         /// Contains the context menu item used to quit the application.
@@ -53,6 +64,11 @@
             this.contextPostItem.Click += new EventHandler(this.ContextPostItem_Click);
             this.contextMenu.Items.Add(this.contextPostItem);
 
+            this.contextDownloadItem = new ToolStripMenuItem(Resources.Tray_Context_Download_Text);
+            this.contextDownloadItem.Image = Resources.Tray_Context_Download_Icon;
+            this.contextDownloadItem.Click += new EventHandler(this.ContextDownloadItem_Click);
+            this.contextMenu.Items.Add(this.contextDownloadItem);
+
             this.contextMenu.Items.Add(new ToolStripSeparator());
 
             this.contextConfigItem = new ToolStripMenuItem(Resources.Tray_Context_Config_Text);
@@ -77,13 +93,53 @@
         }
 
         /// <summary>
+        /// Shows a info balloon to the user.
+        /// </summary>
+        /// <param name="text">Text to display.</param>
+        /// <param name="icon">Icon to use for balloon.</param>
+        internal void ShowInfo(string text, ToolTipIcon icon)
+        {
+            this.trayIcon.ShowBalloonTip(1000, "GistBoard", text, icon);
+        }
+
+        /// <summary>
+        /// This method is called when the user clicks on the download context
+        /// menu item.
+        /// </summary>
+        /// <param name="sender">Event sender (ignored).</param>
+        /// <param name="e">Event arguments (ignored).</param>
+        private void ContextDownloadItem_Click(object sender, EventArgs e)
+        {
+            // TODO: Get id from user and download gist
+        }
+
+        /// <summary>
         /// Called, when the clipboard contents change.
         /// </summary>
         /// <param name="sender">Monitor object sending event (ignored).</param>
         /// <param name="e">Always null (ignored).</param>
         private void OnClipboardChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("Clipboard contents changed!");
+            string contents = Clipboard.GetText();
+            Regex gistRegex = new Regex(GistPattern);
+            Match gistMatch = gistRegex.Match(contents);
+            if (gistMatch.Success)
+            {
+                this.GetGist(gistMatch.Groups[1].Value);
+            }
+        }
+
+        /// <summary>
+        /// Download a gist with a specific id from the server and
+        /// set the clipboard to its contents.
+        /// </summary>
+        /// <param name="id">Id of gist to download.</param>
+        private void GetGist(string id)
+        {
+            Gist content = GistServer.Get((string)id);
+
+            Clipboard.SetText(content.Contents);
+            this.ShowInfo(String.Format(Resources.Info_Get, id), ToolTipIcon.Info);
         }
 
         /// <summary>
@@ -125,7 +181,10 @@
             this.contextMenu.Enabled = false;
 
             PostForm postForm = new PostForm();
-            postForm.ShowDialog();
+            if (postForm.ShowDialog() == DialogResult.OK)
+            {
+                this.ShowInfo(Resources.Info_Post, ToolTipIcon.Info);
+            }
 
             this.contextMenu.Enabled = true;
         }
