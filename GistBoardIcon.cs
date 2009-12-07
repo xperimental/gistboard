@@ -142,8 +142,15 @@
         {
             Gist content = GistServer.Get((string)id);
 
-            Clipboard.SetText(content.Contents);
-            this.ShowInfo(String.Format(Resources.Info_Get, id), ToolTipIcon.Info);
+            if (content != null)
+            {
+                Clipboard.SetText(content.Contents);
+                this.ShowInfo(String.Format(Resources.Info_Get, id), ToolTipIcon.Info);
+            }
+            else
+            {
+                this.ShowInfo(String.Format(Resources.Error_Get, id), ToolTipIcon.Error);
+            }
         }
 
         /// <summary>

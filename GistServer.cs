@@ -71,10 +71,17 @@
             string contents = sb.ToString();
             reader.Close();
 
-            Gist result = new Gist();
-            result.Contents = contents;
+            if (contents.Length > 0)
+            {
+                Gist result = new Gist();
+                result.Contents = contents;
 
-            return result;
+                return result;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>

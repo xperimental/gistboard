@@ -61,6 +61,15 @@ namespace GistBoard.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error getting Gist {0}!.
+        /// </summary>
+        internal static string Error_Get {
+            get {
+                return ResourceManager.GetString("Error_Get", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully downloaded Gist {0}..
         /// </summary>
         internal static string Info_Get {
